@@ -7,7 +7,7 @@ function HomeScreen(){
   return <div className="home">
     <Carousel/>
     <div className="heading">
-      <h2>MOVIES</h2>
+      <h2>MOV</h2>
     </div>
     <div className="sidebar"></div>
     <div className="moviecarddisplay">
