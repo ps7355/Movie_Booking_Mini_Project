@@ -1,8 +1,18 @@
 import React from "react";
-import "./exp.css"
-import { useState } from "react";
+import "./movie_show_time.css"
+import { useEffect } from "react";
 import TheaterNameDiaply from "./components/theater_name";
-function DisplayShow(){
+function DisplayShow(props){
+  const movie=props.location.state.movie;
+  console.log('hai');
+  useEffect(() => {
+    console.log('DisplayShow component mounted');
+    // Add any code you want to run on mount here
+    return () => {
+      console.log('DisplayShow component unmounted');
+      // Add any cleanup code here
+    };
+  }, [props.location.state.movie]);
   const theaternames=[
     {name:"SPI S2 Cinemas- Perambur - Chennai",address:"114, A, 114 B , 3Rd Floor, Paper Mills Road, Gopal Colony, Perambur, Chennai, Tamil Nadu 600011"},
     {name:"PVR Ampa Skywalk Mall - Aminjikarai",address:"4th Floor, Ampa Skywalk Mall, Nelson Manickam Road, Aminjikarai"},
@@ -15,7 +25,7 @@ function DisplayShow(){
     ]    
   return <div>
     <div className="trailer">
-      <iframe src="" frameborder="0"></iframe>
+      <p>{movie.name}</p>
     </div>
     <div className="dates">
     <button>

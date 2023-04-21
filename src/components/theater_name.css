@@ -1,0 +1,17 @@
+.name{
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: medium;
+}
+.address{
+    width: 300px;
+    color: grey;
+    font-size: small;
+    margin-bottom: 10px;
+}
+.divider{
+    height: 1px;
+    border-bottom: solid 1.5px rgb(212, 202, 202);
+    width: 90%;
+    margin-bottom: 20px;
+}
