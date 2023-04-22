@@ -1,0 +1,25 @@
+
+.screen{
+    margin: 50px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+}
+.s {
+    height: 30px;
+    width: 30px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 7px;
+    margin-right: 6px;
+    margin-bottom: 7px;
+  }
+  
+  .s.clicked {
+    background-color: #32cd32;
+  }
+
+  .s.unavailable {
+    background-color: lightgray;
+  }
