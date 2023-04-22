@@ -1,16 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
-
+.trailer {
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .movieimg-wrapper {
+    display: inline-block;
+    margin-left: 50px;
+    margin-top: 13px;
+  }
+  
+  .movieimg {
+    width: 300px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
 .trailer{
-    height: 400px;
-    background-color: aqua;
+    margin: 0;
+    height: 450px;
     padding-bottom: 40px;
+    background-color: #2b3148;
+    text-align: start;
 }
-.trailer img{
-    height: 320px;
-    width: 220px;
-    position: relative;
-    margin-left: 70px;
+.movieimg{
+    display: block;
+    height: 400px;
+    margin: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 2px solid white;
 }
+
 .dates{
     margin-top: 50px;
 }

@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client'
 import Navigation from './navigation'
 import { BrowserRouter} from 'react-router-dom'
 import { ChakraProvider } from '@chakra-ui/react'
-import DisplayShow from './exp'
 import './index.css'
 
 

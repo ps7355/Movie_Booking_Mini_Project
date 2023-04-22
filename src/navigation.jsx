@@ -4,7 +4,7 @@ import App from "./App";
 import HomeScreen from "./components/homescreen";
 import CheckUser from "./check_aurhentication";
 import SignUp from "./signup";
-import DisplayShow from "./exp";
+import DisplayShow from "./components/movie_show_time";
 
 function Navigation(){
     return <Routes>
