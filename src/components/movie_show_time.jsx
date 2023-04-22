@@ -44,7 +44,7 @@ function DisplayShow(){
       const link = "https://api.themoviedb.org/3/movie/"+id+"?api_key=b68de287cf986bd45ee2ebd1f9dbd0a1";
       fetch(link).then(
         response=>response.json()).then(
-          data => {setmoviedata(data); console.log(data)}
+          data => {setmoviedata(data);}
         ).catch((e)=>{
           console.log(e);
         })
