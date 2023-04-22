@@ -3,7 +3,7 @@ import "./theater_name.css";
 function TheaterNameDiaply(props){
 
         
-    return <div>
+    return <div className="full">
         <div className="name">
         <p>{props.name.name}</p>
             </div> 

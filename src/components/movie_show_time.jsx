@@ -1,7 +1,9 @@
 import React from "react";
 import "./movie_show_time.css"
 import TheaterNameDiaply from "./theater_name"
+import { useEffect,useState } from "react";
 import { useParams } from "react-router-dom";
+import { CircularProgress,CircularProgressLabel } from "@chakra-ui/react";
 function DisplayShow(){
   const movies = [
     { name: "Avathar The Way Of Water", language: "English",rating:"UA",link:"https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/avatar-the-way-of-water-et00037264-1670850986.jpg",movie_id:"76600",trailer:"https://youtu.be/d9MyW72ELq0" },
@@ -36,22 +38,52 @@ function DisplayShow(){
     {name:"PVR Grand Mall - Velachery",address:"3rd Floor No: 137 Tambaram Velachery Road"},
     ];
     const { movieName } = useParams();  
+    const[moviedata,setmoviedata]=useState(null);
+    const id = find(movieName);
+    useEffect(()=>{
+      const link = "https://api.themoviedb.org/3/movie/"+id+"?api_key=b68de287cf986bd45ee2ebd1f9dbd0a1";
+      fetch(link).then(
+        response=>response.json()).then(
+          data => {setmoviedata(data); console.log(data)}
+        ).catch((e)=>{
+          console.log(e);
+        })
+    },[]);
 
+    //  const genreNames = moviedata.genres?.map(genre => genre.name);
+    //  const combinedGenres = genreNames.join(", ");
     function find(name){
+      return movies.find(link=>link.name==name)?.movie_id;
+    }
+    function findlink(name){
       return movies.find(link=>link.name==name)?.link;
+    }
+    function findlang(name){
+      return movies.find(link=>link.name==name)?.language;
     }
   return <div>
    <div className="trailer">
   <div className="movieimg-wrapper">
-    <img className="movieimg" src={find(movieName)} alt="" />
+    <img className="movieimg" src={findlink(movieName)} alt="" />
+  </div>
+  <div className="details">
+  <p className="title">{moviedata?.title}</p>
+  <div className="first">
+  <p className="language">{findlang(movieName)}</p>
+  <p>|</p>
+  <p className="rating">U/A</p>
+  </div>
+  <div className="second">
+  <p className="genere"></p>
+  <p>|</p>
+  <p className=" runtime">{moviedata?.runtime+" min"}</p>
+  <p>|</p>
+  <p className="releasedate">{moviedata?.release_date}</p>
+  </div>
+  <p className="overview">Overview</p>
+  <p>{moviedata?.overview}</p>
   </div>
 </div>
-    <div className="dates">
-    <button>
-        <p className="date">Fri</p>
-        <p className="day">21</p>
-      </button>
-      </div>
       <div className="theaters">
         {theaternames.map((name)=>{
           return <TheaterNameDiaply name={name}/>

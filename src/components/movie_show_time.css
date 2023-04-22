@@ -31,6 +31,63 @@
     border-radius: 10px;
     border: 2px solid white;
 }
+.details{
+    margin-top: -370px;
+    margin-left: 500px;
+    color: white;
+}
+.title{
+    font-size: 30px;
+    padding-bottom: 7px;
+}
+.first{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    margin-bottom: 7px;
+}
+.language{
+    font-size: 16px;
+    margin-right: 5px;
+}
+.rating{
+    font-size: 16px;
+    margin-left: 10px;
+}
+.second{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    margin-bottom: 14px;
+}
+.genere{
+    margin-right: 5px;
+}
+.runtime{
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.releasedate{
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .dates{
     margin-top: 50px;
