@@ -16,7 +16,18 @@ function TheaterNameDiaply(props){
     const { isOpen, onOpen, onClose } = useDisclosure()
     const navigate = useNavigate();
     function navi(){
-        navigate("/seating");
+      const name = props.movie;
+      const theater=props.name.name;
+      const address=props.name.address;
+      const movietime=time;
+        navigate("/seating",{
+          state:{
+            na:name,
+            th:theater,
+            ad:address,
+            mt:movietime
+          }
+        });
     }
     return <div onClick={onOpen} className="full">
         <div className="name">

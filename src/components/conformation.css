@@ -1,0 +1,54 @@
+.ticket-container {
+    width: 390px;
+    margin: 70px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+  }
+  
+  .ticket-header {
+    background-color: #f7f7f7;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .ticket-header h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .ticket-header p {
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  .ticket-body {
+    display: flex;
+  }
+  
+  .ticket-details {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  .ticket-details p {
+    margin: 10px 0;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  .paynow{
+    height: 40px;
+    width: 100px;
+    background-color: #32cd32 ;
+    text-align: center;
+    color: black;
+    padding-top: 8px;
+    margin-left: 120px;
+    border: 1ps solid black;
+    border-radius: 10px;
+    cursor: pointer;
+  }

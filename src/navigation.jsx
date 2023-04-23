@@ -6,6 +6,7 @@ import CheckUser from "./check_aurhentication";
 import SignUp from "./signup";
 import DisplayShow from "./components/movie_show_time";
 import Seating from "./components/saeting";
+import Conformation from "./components/conformation";
 
 function Navigation(){
     return <Routes>
@@ -15,6 +16,7 @@ function Navigation(){
         <Route path="/home" element={<HomeScreen/>}></Route>
         <Route path="/select/:movieName" element={<DisplayShow/>}></Route>
         <Route path="/seating" element={<Seating/>}></Route>
+        <Route path="/conformation" element={<Conformation/>}></Route>
     </Routes>
 }
 

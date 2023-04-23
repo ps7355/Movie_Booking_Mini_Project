@@ -86,7 +86,7 @@ function DisplayShow(){
 </div>
       <div className="theaters">
         {theaternames.map((name)=>{
-          return <TheaterNameDiaply name={name}/>
+          return <TheaterNameDiaply name={name} movie={movieName}/>
         })}
       </div>
   </div>
