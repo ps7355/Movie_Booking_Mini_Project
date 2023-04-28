@@ -2,7 +2,9 @@ import React from "react";
 import './homescreen.css'
 import Carousel from "./carousel";
 import MovieCard from "./movie_card";
-import { Divider } from "@chakra-ui/react";
+import { auth } from "../firebase-config";
+import { signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 function HomeScreen(){
   const movies = [
@@ -27,7 +29,16 @@ function HomeScreen(){
                   { name: "Sardar", language: "Tamil",rating:"UA",link:"https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/sardar-et00310546-1665572029.jpg",movie_id:"858080",trailer:"https://youtu.be/8OQzz_i3KFE" },
                    { name: "Jana Gana Mana", language: "Malayalam",rating:"UA",link:"https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/jana-gana-mana-et00311371-29-03-2022-01-22-44.jpg",movie_id:"792358",trailer:"https://youtu.be/oN3tz-UetKw" },
   ];
+  const navigate=useNavigate();
+  function signout(){
+    auth.signOut();
+    navigate("/auth");
+  }
   return <div className="home">
+    <div className="header">
+      <p>My Bookings</p>
+      <p onClick={signout}>Logout</p>
+    </div>
     <Carousel/>
     <div className="heading">
       <h2>MOVIES</h2>

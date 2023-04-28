@@ -6,7 +6,8 @@ import { useState } from "react";
 import { useDisclosure } from "@chakra-ui/react";
 import { Button } from "@chakra-ui/react";
 import { Radio, RadioGroup } from '@chakra-ui/react'
-import DatePicker from "react-datepicker";
+import { Input } from "@chakra-ui/react";
+
 import { useNavigate } from "react-router-dom";
 
 function TheaterNameDiaply(props){
@@ -44,8 +45,11 @@ function TheaterNameDiaply(props){
           <ModalCloseButton />
           <ModalBody>
             <h2>Select Date and Time</h2>
-            <DatePicker  startDate={Date()}>
-            </DatePicker>
+            <Input
+ placeholder="Select Date and Time"
+ size="md"
+ type="datetime-local"
+/>
             <div className="space"></div>
             <RadioGroup onChange={settime}>
                 <Stack direction={"column"}>

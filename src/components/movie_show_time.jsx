@@ -4,6 +4,10 @@ import TheaterNameDiaply from "./theater_name"
 import { useEffect,useState } from "react";
 import { useParams } from "react-router-dom";
 import { CircularProgress,CircularProgressLabel } from "@chakra-ui/react";
+import { useDisclosure } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
+import {Modal,ModalOverlay,ModalContent,ModalHeader,ModalFooter,ModalBody,ModalCloseButton, Stack,
+} from '@chakra-ui/react'
 function DisplayShow(){
   const movies = [
     { name: "Avathar The Way Of Water", language: "English",rating:"UA",link:"https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/avatar-the-way-of-water-et00037264-1670850986.jpg",movie_id:"76600",trailer:"https://youtu.be/d9MyW72ELq0" },
@@ -39,6 +43,7 @@ function DisplayShow(){
     ];
     const { movieName } = useParams();  
     const[moviedata,setmoviedata]=useState(null);
+    const { isOpen, onOpen, onClose } = useDisclosure()
     const id = find(movieName);
     useEffect(()=>{
       const link = "https://api.themoviedb.org/3/movie/"+id+"?api_key=b68de287cf986bd45ee2ebd1f9dbd0a1";
@@ -61,9 +66,12 @@ function DisplayShow(){
     function findlang(name){
       return movies.find(link=>link.name==name)?.language;
     }
+    function findmovie(name){
+      return movies.find(link=>link.name==name)?.trailer;
+    }
   return <div>
    <div className="trailer">
-  <div className="movieimg-wrapper">
+  <div className="movieimg-wrapper" onClick={onOpen}>
     <img className="movieimg" src={findlink(movieName)} alt="" />
   </div>
   <div className="details">
@@ -89,6 +97,24 @@ function DisplayShow(){
           return <TheaterNameDiaply name={name} movie={movieName}/>
         })}
       </div>
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Modal Title</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+          <iframe width="420" height="315"
+src={findmovie(movieName)}>
+</iframe>
+          </ModalBody>
+
+          <ModalFooter>
+            <Button colorScheme='blue' mr={3} onClick={onClose}>
+              Close
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
   </div>
 }
 
