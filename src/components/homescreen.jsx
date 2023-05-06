@@ -36,7 +36,7 @@ function HomeScreen(){
   }
   return <div className="home">
     <div className="header">
-      <p>My Bookings</p>
+      <p onClick={()=>navigate("/mybookings")}>My Bookings</p>
       <p onClick={signout}>Logout</p>
     </div>
     <Carousel/>

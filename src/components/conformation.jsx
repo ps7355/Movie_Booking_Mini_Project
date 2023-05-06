@@ -4,6 +4,10 @@ import { useLocation } from "react-router-dom";
 import { useDisclosure } from "@chakra-ui/react";
 import { Button, Spinner } from "@chakra-ui/react";
 import Confetti from "react-confetti";
+import { db } from "../firebase-config";
+import { auth } from "../firebase-config";
+import { useNavigate } from "react-router-dom";
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import {
   Modal,
   ModalOverlay,
@@ -19,14 +23,39 @@ function Conformation() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isBooking, setIsBooking] = useState(true);
   const [isBooked, setIsBooked] = useState(false);
+  const navigate=useNavigate();
 
-  const handleBooking = () => {
+  const handleBooking = async () => {
     onOpen();
     setIsBooking(true);
-    setTimeout(() => {
-      setIsBooking(false);
-      setIsBooked(true);
-    }, 5000);
+  
+    const uid = auth.currentUser.uid;
+    const StoreTicketDate = collection(db, `users/${uid}/tickets`);
+  
+    try {
+      await addDoc(StoreTicketDate, {
+        name: state.name,
+        theater: state.theater,
+        theateraddress: state.address,
+        time: state.time,
+        date: state.date,
+        seat: state.totalseats,
+        seatno: state.seatno,
+      });
+  
+      console.log('Ticket added');
+  
+      setTimeout(() => {
+        setIsBooking(false);
+        setIsBooked(true);
+      }, 5000);
+  
+      setTimeout(() => {
+        navigate('/mybookings');
+      }, 14000);
+    } catch (error) {
+      console.error('Error adding ticket: ', error);
+    }
   };
 
   return (
@@ -49,7 +78,7 @@ function Conformation() {
       <div className="ticket-body">
         <div className="ticket-details">
           <p>{`Show Timing   :               ${state.time}`}</p>
-          <p>{`Show Date  :               23-04-2023`}</p>
+          <p>{`Show Date  :               ${state.date}`}</p>
           <p>{`Total Seats   :               ${state.totalseats}`}</p>
           <p>{`Seat Numbers  :               ${state.seatno.join(", ")}`}</p>
           <p>{`Price         :               ${state.totalseats * 150}`}</p>

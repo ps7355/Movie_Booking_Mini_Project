@@ -21,12 +21,14 @@ function TheaterNameDiaply(props){
       const theater=props.name.name;
       const address=props.name.address;
       const movietime=time;
+      const moviedate=date;
         navigate("/seating",{
           state:{
             na:name,
             th:theater,
             ad:address,
-            mt:movietime
+            mt:movietime,
+            md:date
           }
         });
     }
@@ -48,7 +50,8 @@ function TheaterNameDiaply(props){
             <Input
  placeholder="Select Date and Time"
  size="md"
- type="datetime-local"
+ type="date"
+ onChange={(event)=>setdate(event.target.value)}
 />
             <div className="space"></div>
             <RadioGroup onChange={settime}>

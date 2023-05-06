@@ -7,6 +7,7 @@ import SignUp from "./signup";
 import DisplayShow from "./components/movie_show_time";
 import Seating from "./components/saeting";
 import Conformation from "./components/conformation";
+import MyBookings from "./components/mybooking";
 
 function Navigation(){
     return <Routes>
@@ -17,6 +18,7 @@ function Navigation(){
         <Route path="/select/:movieName" element={<DisplayShow/>}></Route>
         <Route path="/seating" element={<Seating/>}></Route>
         <Route path="/conformation" element={<Conformation/>}></Route>
+        <Route path="/mybookings" element={<MyBookings/>}></Route>
     </Routes>
 }
 

@@ -64,6 +64,7 @@ function Seating() {
       theater:state.th,
       address:state.ad,
       time:state.mt,
+      date:state.md,
       seatno:selectedSeats,
       totalseats:selectedSeats.length,
     }}
