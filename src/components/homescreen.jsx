@@ -5,8 +5,17 @@ import MovieCard from "./movie_card";
 import { auth } from "../firebase-config";
 import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { Select } from "@chakra-ui/react";
 
 function HomeScreen(){
+  const cities = [
+    { value: "mumbai", label: "Mumbai" },
+    { value: "delhi", label: "Delhi" },
+    { value: "kolkata", label: "Kolkata" },
+    { value: "chennai", label: "Chennai" },
+    { value: "bengaluru", label: "Bengaluru" },
+    { value: "hyderabad", label: "Hyderabad" },
+  ];
   const movies = [
     { name: "Avathar The Way Of Water", language: "English",rating:"UA",link:"https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/avatar-the-way-of-water-et00037264-1670850986.jpg",movie_id:"76600",trailer:"https://youtu.be/d9MyW72ELq0" },
   { name: "Black Panther", language: "English",rating:"UA",link:"https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/black-panther-et00046523-16-09-2016-12-06-19.jpg",movie_id:"284054",trailer:"https://youtu.be/xjDjIWPwcPU" },
@@ -42,6 +51,11 @@ function HomeScreen(){
     <Carousel/>
     <div className="heading">
       <h2>MOVIES</h2>
+      <div className="cityselecter">
+      < Select placeholder='Chennai' width={"170px"} backgroundColor={"white"}>
+        {cities.map((value)=><option value={value.value}>{value.label}</option>)}
+</Select>
+</div>
     </div>
     <div className="sidebar">
       <h2>Filter By</h2>

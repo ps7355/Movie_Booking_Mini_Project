@@ -1,9 +1,9 @@
 import React from "react";
-
+import Carousel from "./carousel";
 
 function MyBookings(){
     return <div>
-        <p>hai</p>
+        <Carousel/>
     </div>
 }
 

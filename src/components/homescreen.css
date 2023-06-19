@@ -38,6 +38,11 @@ body{
   text-decoration: underline royalblue;
   text-underline-position: under;
 }
+.cityselecter{
+  margin-left: 450px;
+  margin-top: -30px;
+  margin-bottom: 30px;
+}
 
 .sidebar{
   height: 100%;
