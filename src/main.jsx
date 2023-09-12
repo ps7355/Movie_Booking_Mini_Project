@@ -10,7 +10,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ChakraProvider>
     <BrowserRouter>
-    <BlogSummarizer/>
+    <Navigation/>
     </BrowserRouter>
     </ChakraProvider>
   </React.StrictMode>,
